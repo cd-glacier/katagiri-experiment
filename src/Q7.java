@@ -119,21 +119,20 @@ public class Q7 {
         List<Double> outVersicolors = versicolors.stream().map(x -> dot(weight, x)).collect(Collectors.toList());
         List<Double> result = new ArrayList<Double>();
         for(int i = 0; i < outSetosas.size(); i++){
-            if (outSetosas.get(i) - outVersicolors.get(i) > 0){
+            if (outSetosas.get(i).doubleValue() - outVersicolors.get(i).doubleValue() > 0){
                 result.add(1.0);
-            } else if (outSetosas.get(i) - outVersicolors.get(i) <= 0){
+            } else if (outSetosas.get(i).doubleValue() - outVersicolors.get(i).doubleValue() <= 0){
                 result.add(2.0);
             }
         }
 
         int count = 0;
         for (int i = 0; i < setosas.size(); i++){
-            if(result.get(i).intValue() == setosas.get(i).get(4).intValue()){
+            if(result.get(i).intValue() == 1 && result.get(i).intValue() == setosas.get(i).get(4).intValue()){
                 count++;
             }
         }
-        System.out.println(count);
-
+        System.out.println(count/result.size()*100 + "%");
     }
 }
 
