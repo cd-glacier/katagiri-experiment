@@ -13,9 +13,9 @@ public class Q7 {
         br.close();
 
         // array to list
-        List<List<Double>> setosas = Util.convertSampleToList(sample, 0);
-        List<List<Double>> versicolors = Util.convertSampleToList(sample,1);
-        List<List<Double>> versinicas = Util.convertSampleToList(sample, 2);
+        List<List<Double>> setosas = Util.convertSampleToExtendedList(sample, 0);
+        List<List<Double>> versicolors = Util.convertSampleToExtendedList(sample,1);
+        List<List<Double>> versinicas = Util.convertSampleToExtendedList(sample, 2);
 
         List<Double> weight = Arrays.asList(0.33, 0.23, -0.38, -0.05, 0.47);
         List<Double> outSetosas = setosas.stream().map(x -> Util.dot(weight, x)).collect(Collectors.toList());
@@ -31,7 +31,7 @@ public class Q7 {
 
         int count = 0;
         for (int i = 0; i < setosas.size(); i++){
-            if(result.get(i).intValue() == 1 && result.get(i).intValue() == setosas.get(i).get(4).intValue()){
+            if(result.get(i).doubleValue() == 1.0 && result.get(i).doubleValue() == setosas.get(i).get(4).doubleValue()){
                 count++;
             }
         }

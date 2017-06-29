@@ -12,14 +12,14 @@ public class Q8 {
         br.close();
 
         // array to list
-        List<List<Double>> setosas = Util.convertSampleToList(sample, 0);
-        List<List<Double>> versicolors = Util.convertSampleToList(sample,1);
-        List<List<Double>> versinicas = Util.convertSampleToList(sample, 2);
+        List<List<Double>> setosas = Util.convertSampleToExtendedList(sample, 0);
+        List<List<Double>> versicolors = Util.convertSampleToExtendedList(sample,1);
+        List<List<Double>> versinicas = Util.convertSampleToExtendedList(sample, 2);
 
         List<List<Double>> samples = new ArrayList<List<Double>>();
         samples.addAll(setosas);
         samples.addAll(versicolors);
-
+        List<Double> weight = Arrays.asList(0.33, 0.23, -0.38, -0.05, 0.47);
 
 
     }

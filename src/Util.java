@@ -36,13 +36,15 @@ public class Util {
         return sample;
     }
 
-    public static List<List<Double>> convertSampleToList(double[][][] sample, int type){
+    public static List<List<Double>> convertSampleToExtendedList(double[][][] sample, int type){
         List<List<Double>> list = new ArrayList<List<Double>>(){};
         for (int i = 0; i < sample[type].length; i++) {
             List<Double> tmp = new ArrayList<Double>();
+            tmp.add(1.0);
             for (int j = 0; j < sample[type][i].length; j++) {
                 tmp.add(sample[type][i][j]);
             }
+            tmp.remove(5);
             list.add(tmp);
         }
         return list;
