@@ -47,16 +47,17 @@ public class Q9 {
             	weight = step(irises, weight, r);
             }
             List<Double> newWeight = weight;
-            	
+
             List<Double> out = irises.stream().map(x -> Util.dot(newWeight, x)).collect(Collectors.toList());
-            List<Double> result = new ArrayList<Double>();
-            for(int i = 0; i < out.size(); i++){
-                if (out.get(i) > 0){
-                    result.add(1.0);
-                } else if (out.get(i) <= 0){
-                    result.add(2.0);
+            List<Double> result = out.stream().map(x -> {
+                double tmp = 0.0;
+                if (x > 0){
+                    tmp = 1.0;
+                } else if (x <= 0){
+                    tmp = 2.0;
                 }
-            }
+                return tmp;
+            }).collect(Collectors.toList());
 
             double count = 0.0;
             for (int i = 0; i < result.size(); i++){

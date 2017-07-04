@@ -20,18 +20,18 @@ public class Q13 {
         List<List<Double>> versicolors = Util.convertSampleToExtendedList(sample,1);
         List<List<Double>> versinicas = Util.convertSampleToExtendedList(sample, 2);
 
+        // split data
         int begin = 0;
         int mid = 20;
         int end = 50;
-        List<List<Double>> trainSetosas = Util.split(setosas, begin, mid);
-        List<List<Double>> train = trainSetosas;
+        List<List<Double>> train = Util.split(setosas, begin, mid);
         train.addAll(Util.split(versicolors, begin, mid));
         train.addAll(Util.split(versinicas, begin, mid));
-        List<List<Double>> testSetosas = Util.split(setosas, mid, end);
-        List<List<Double>> test = testSetosas;
+        List<List<Double>> test = Util.split(setosas, mid, end);
         test.addAll(Util.split(versicolors, mid, end));
         test.addAll(Util.split(versinicas, mid, end));
-        
+
+        // study and acognition
         List<Integer> result = new ArrayList<Integer>(){};
         for (int i = 0; i < test.size(); i++){
         	double min = 999999999999999.0;
@@ -46,17 +46,17 @@ public class Q13 {
         	result.add(index);
         }
         
-        double count = 0.0;
+        double correctCount = 0.0;
         for (int i = 0; i < result.size(); i++){
         	if(i < 20 && result.get(i) < 20) {
-        		count++;
+        		correctCount++;
         	} else if (i >= 40 && result.get(i) >= 40) {
-        		count++;
+        		correctCount++;
         	} else if (20 <= i && i < 40 && 20 <= result.get(i) && result.get(i) < 40) {
-        		count++;
+        		correctCount++;
         	}
         }
         
-       System.out.println(count/90.0*100 + "%");
+       System.out.println(correctCount/result.size()*100 + "%");
     }
 }
