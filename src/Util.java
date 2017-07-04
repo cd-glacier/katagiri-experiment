@@ -70,18 +70,18 @@ public class Util {
         String name = "";
         switch(i){
             case 1:
-                name = "がく片の長さ";
+                name = "縺後￥迚�縺ｮ髟ｷ縺�";
                 break;
             case 2:
-                name = "がく片の幅";
+                name = "縺後￥迚�縺ｮ蟷�";
                 break;
             case 3:
-                name = "花弁の長さ";
+                name = "闃ｱ蠑√�ｮ髟ｷ縺�";
                 break;
             case 4:
-                name = "花弁の幅";
+                name = "闃ｱ蠑√�ｮ蟷�";
             case 5:
-                name = "品種";
+                name = "蜩∫ｨｮ";
         }
         return name;
     }
@@ -94,5 +94,35 @@ public class Util {
         return result;
     }
 
+    public static List<Double> add(List<Double> a, List<Double> b) {
+        List<Double> result = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0);
+        for(int i = 0; i < a.size(); i++){
+            result.set(i, a.get(i)+b.get(i));
+        }
+        return result;
+    }
+    
+    public static List<Double> sub(List<Double> a, List<Double> b) {
+        List<Double> result = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0);
+        for(int i = 0; i < a.size(); i++){
+            result.set(i, a.get(i)-b.get(i));
+        }
+        return result;
+    }
 
+    public static <T> List<T> split(List<T> list, int begin, int end){
+    	List<T> result = new ArrayList<T>(){};
+    	for(int i = begin; i < end; i++){
+    		result.add(list.get(i));
+    	}
+    	return result;
+    }
+    
+	public static double euclideanDist(List<Double> test, List<Double> train) {
+		double result = 0.0;
+		for(int i = 0; i < test.size(); i++){
+			result += Math.pow(test.get(i) - train.get(i), 2);
+		}
+		return result;
+	}
 }
