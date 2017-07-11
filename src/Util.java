@@ -101,7 +101,7 @@ public class Util {
         }
         return result;
     }
-    
+
     public static List<Double> sub(List<Double> a, List<Double> b) {
         List<Double> result = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0);
         for(int i = 0; i < a.size(); i++){
@@ -111,18 +111,53 @@ public class Util {
     }
 
     public static <T> List<T> split(List<T> list, int begin, int end){
-    	List<T> result = new ArrayList<T>(){};
-    	for(int i = begin; i < end; i++){
-    		result.add(list.get(i));
-    	}
-    	return result;
+        List<T> result = new ArrayList<T>(){};
+        for(int i = begin; i < end; i++){
+            result.add(list.get(i));
+        }
+        return result;
     }
-    
-	public static double euclideanDist(List<Double> test, List<Double> train) {
-		double result = 0.0;
-		for(int i = 0; i < test.size(); i++){
-			result += Math.pow(test.get(i) - train.get(i), 2);
-		}
-		return result;
-	}
+
+    public static <T> List<List<T>> split(List<T> list, int num){
+        int divideNum = list.size() / num;
+        List<List<T>> result = new ArrayList<List<T>>(){};
+        for(int j = 0; j < num; j++){
+            List<T> tmp = new ArrayList<T>(){};
+            for(int i = j*divideNum; i < divideNum*(j+1); i++){
+                tmp.add(list.get(i));
+            }
+            result.add(tmp);
+        }
+        return result;
+    }
+
+    public static double euclideanDist(List<Double> test, List<Double> train) {
+        double result = 0.0;
+        for(int i = 0; i < test.size(); i++){
+            result += Math.pow(test.get(i) - train.get(i), 2);
+        }
+        return result;
+    }
+
+    public static double sum(List<Double> li){
+        double sum = 0.0;
+        for (int i = 0; i < li.size(); i++){
+            sum += li.get(i);
+        }
+        return sum;
+    }
+
+    public static boolean equals(List<Double> a, List<Double> b){
+        int count = 0;
+        for(int i = 0; i < a.size(); i++){
+            if(a.get(i) == b.get(i)){
+                count++;
+            }
+        }
+        if(count == a.size()){
+            return true;
+        }
+
+        return false;
+    }
 }
