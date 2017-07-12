@@ -23,7 +23,7 @@ public class Q9 {
 	}
 	
 	public static void main(String[] args) throws IOException {
-        BufferedReader br = Util.makeBR(".\\data\\iris.txt");
+        BufferedReader br = Util.makeBR("./data/iris.txt");
 
         // make iris array
         double[][][] sample;

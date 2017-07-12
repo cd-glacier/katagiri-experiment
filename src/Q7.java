@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Q7 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = Util.makeBR(".\\data\\iris.txt");
+        BufferedReader br = Util.makeBR("./data/iris.txt");
 
         // make iris array
         double[][][] sample;
