@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class Q9 {
         List<List<Double>> versicolors = Util.convertSampleToExtendedList(sample,1);
         List<List<Double>> versinicas = Util.convertSampleToExtendedList(sample, 2);
 
-        double r = 0.01;
+        double r = 1.0;
         List<List<Double>> irises = versicolors;
         irises.addAll(versinicas);
         

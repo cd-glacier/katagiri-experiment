@@ -2,12 +2,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Q13 {
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = Util.makeBR("./data/iris.txt");
 
         // make iris array
@@ -34,29 +32,34 @@ public class Q13 {
         // study and acognition
         List<Integer> result = new ArrayList<Integer>(){};
         for (int i = 0; i < test.size(); i++){
-        	double min = 999999999999999.0;
-        	int index = -1;
-        	for (int j = 0; j < train.size(); j++){
-        		double tmp = Util.euclideanDist(test.get(i), train.get(j));
-        		if (tmp < min) {
-        			min = tmp;
-            		index = j;
-        		}
-        	}
-        	result.add(index);
+            double min = 999999999999999.0;
+            int index = -1;
+            for (int j = 0; j < train.size(); j++){
+                double tmp = Util.euclideanDist(test.get(i), train.get(j));
+                if (tmp < min) {
+                    min = tmp;
+                    index = j;
+                }
+            }
+            result.add(index);
         }
-        
+
         double correctCount = 0.0;
         for (int i = 0; i < result.size(); i++){
-        	if(i < 20 && result.get(i) < 20) {
-        		correctCount++;
-        	} else if (i >= 40 && result.get(i) >= 40) {
-        		correctCount++;
-        	} else if (20 <= i && i < 40 && 20 <= result.get(i) && result.get(i) < 40) {
-        		correctCount++;
-        	}
+            if(i < 30 && result.get(i) < 20) {
+                correctCount++;
+            } else if (i >= 60 && result.get(i) >= 40) {
+                correctCount++;
+            } else if (30 <= i && i < 60 && 20 <= result.get(i) && result.get(i) < 40) {
+                correctCount++;
+            }
         }
-        
-       System.out.println(correctCount/result.size()*100 + "%");
+
+        System.out.println(correctCount/result.size()*100 + "%");
     }
 }
+
+
+
+
+
